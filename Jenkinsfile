@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-        stage("package") {
+        stage("packing") {
             steps {
                 script {
                     EXTsc.package()
