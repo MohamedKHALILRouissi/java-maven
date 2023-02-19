@@ -1,4 +1,4 @@
-df EXTsc = [:]
+def EXTsc = [:]
 pipeline {
     agent any 
     
