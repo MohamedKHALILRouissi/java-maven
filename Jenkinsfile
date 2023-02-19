@@ -4,7 +4,16 @@ pipeline {
   stages {
   
    stage("build") {
-  
+     
+    when {
+      
+      expression {
+        
+        BRANCH_NAME = 'main'
+      }
+      
+    }
+     
     steps {
     
     echo "installing"
@@ -27,4 +36,15 @@ pipeline {
    
   }
   
+}
+post {
+  always {
+    echo ' this will be executed always '
+  }
+  succes {
+    echo ' this will be executed on success '
+  }
+  failure { 
+    echo ' this will be executed on failure '
+  }
 }
