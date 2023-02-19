@@ -46,7 +46,7 @@ pipeline {
                 ok "Done"
                 parameters {
                     string(name:'DOCKER_NAME', defaultValue: '', description: 'name of the image')
-                    string(name:'PORT', defaultValue: '', description: 'port of the nexus repo')
+                    string(name:'PORT_REPO', defaultValue: '', description: 'port of the nexus repo')
                     string(name:'DOCKER_TAG', defaultValue: '', description: 'tag of the image')
                 }
             }
