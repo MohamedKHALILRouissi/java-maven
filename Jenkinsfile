@@ -17,7 +17,7 @@ pipeline {
         stage("test") {
             when {
                 expression {
-                    BRANCH_NAME == 'jenkins-pipeline'
+                    env.BRANCH_NAME == 'jenkins-pipeline'
                 }
             }
             steps {
