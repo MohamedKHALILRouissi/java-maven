@@ -3,7 +3,7 @@ echo ' maven testing ... '
 sh 'mvn test'
 }
 
-def package () {
+def packing () {
 echo ' maven packaging ... '
 sh 'mvn package'
 }
