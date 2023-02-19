@@ -7,31 +7,37 @@ pipeline {
     }
     
     stages {
-        stage("init"){
-            steps{
-                script{
+        stage("init") {
+            steps {
+                script {
                     gv = load "script.groovy"
                 }
             }
         }
-        stage("test"){
+        stage("test") {
             when {
                 expression {
                     BRANCH_NAME == 'jenkins-pipeline'
                 }
             }
             steps {
-                gv.test()
+                script {
+                    gv.test()
+                }
             }
         }
         stage("package") {
             steps {
-                gv.package()
+                script {
+                    gv.package()
+                }
             }
         }
         stage("build docker artifact"){
             setps {
-                gv.buildocker()
+                script {
+                    gv.buildocker()
+                }
             }
         }
         stage("push docker artifact"){
@@ -48,7 +54,9 @@ pipeline {
                 NEXUS_CREDS = credentials('nexuskhalil')
             }
             steps {
-                gv.pushdocker()
+                script {
+                    gv.pushdocker()
+                }
             }
         }
     }
