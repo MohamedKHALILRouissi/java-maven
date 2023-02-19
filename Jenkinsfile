@@ -1,4 +1,4 @@
-df gv
+df EXTsc = [:]
 pipeline {
     agent any 
     
@@ -10,7 +10,7 @@ pipeline {
         stage("init") {
             steps {
                 script {
-                    gv = load "script.groovy"
+                    EXTsc = load "script.groovy"
                 }
             }
         }
@@ -22,21 +22,21 @@ pipeline {
             }
             steps {
                 script {
-                    gv.test()
+                    EXTsc.test()
                 }
             }
         }
         stage("package") {
             steps {
                 script {
-                    gv.package()
+                    EXTsc.package()
                 }
             }
         }
         stage("build docker artifact") {
             steps {
                 script {
-                    gv.buildocker()
+                    EXTsc.buildocker()
                 }
             }
         }
@@ -55,7 +55,7 @@ pipeline {
             }
             steps {
                 script {
-                    gv.pushdocker()
+                    EXTsc.pushdocker()
                 }
             }
         }
