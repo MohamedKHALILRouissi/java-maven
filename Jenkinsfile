@@ -15,11 +15,6 @@ pipeline {
             }
         }
         stage("test") {
-            when {
-                expression {
-                    env.BRANCH_NAME == 'jenkins-pipeline'
-                }
-            }
             steps {
                 script {
                     EXTsc.test()
